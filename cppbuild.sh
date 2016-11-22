@@ -85,6 +85,23 @@ case $PLATFORM in
         ;;
 esac
 
+if [[ -z ${RASPBERRY_TOOLS:-} ]]; then
+    RASPBERRY_TOOLS=~/raspberry-tools
+fi
+export RASPBERRY_TOOLS
+case $PLATFORM in
+    raspberry-x32)
+        export RASPBERRY_ROOT="$RASPBERRY_TOOLS/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian"
+        export RASPBERRY_BIN="$RASPBERRY_ROOT/bin"
+        export RASPBERRY_COMPILER_PREFIX="arm-linux-gnueabihf"
+        ;;
+    raspberry-x64)
+        export RASPBERRY_ROOT="$RASPBERRY_TOOLS/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64"
+        export RASPBERRY_BIN="$RASPBERRY_ROOT/bin"
+        export RASPBERRY_COMPILER_PREFIX="arm-linux-gnueabihf"
+        ;;
+esac
+
 TOP_PATH=`pwd`
 
 function download {

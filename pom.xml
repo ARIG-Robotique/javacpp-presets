@@ -101,6 +101,8 @@
     <javacpp.platform.linux-armhf>linux-armhf</javacpp.platform.linux-armhf>
     <javacpp.platform.linux-ppc64le>linux-ppc64le</javacpp.platform.linux-ppc64le>
     <javacpp.platform.macosx-x86_64>macosx-x86_64</javacpp.platform.macosx-x86_64>
+    <javacpp.platform.raspberry-x32>raspberry-x32</javacpp.platform.raspberry-x32>
+    <javacpp.platform.raspberry-x64>raspberry-x64</javacpp.platform.raspberry-x64>
     <javacpp.platform.windows-x86>windows-x86</javacpp.platform.windows-x86>
     <javacpp.platform.windows-x86_64>windows-x86_64</javacpp.platform.windows-x86_64>
   </properties>
@@ -514,6 +516,8 @@
         <javacpp.platform.linux-armhf>${javacpp.platform}</javacpp.platform.linux-armhf>
         <javacpp.platform.linux-ppc64le>${javacpp.platform}</javacpp.platform.linux-ppc64le>
         <javacpp.platform.macosx-x86_64>${javacpp.platform}</javacpp.platform.macosx-x86_64>
+        <javacpp.platform.raspberry-x32>${javacpp.platform}</javacpp.platform.raspberry-x32>
+        <javacpp.platform.raspberry-x64>${javacpp.platform}</javacpp.platform.raspberry-x64>
         <javacpp.platform.windows-x86>${javacpp.platform}</javacpp.platform.windows-x86>
         <javacpp.platform.windows-x86_64>${javacpp.platform}</javacpp.platform.windows-x86_64>
       </properties>
@@ -535,6 +539,8 @@
         <javacpp.platform.linux-armhf>${os.name}-${os.arch}</javacpp.platform.linux-armhf>
         <javacpp.platform.linux-ppc64le>${os.name}-${os.arch}</javacpp.platform.linux-ppc64le>
         <javacpp.platform.macosx-x86_64>${os.name}-${os.arch}</javacpp.platform.macosx-x86_64>
+        <javacpp.platform.raspberry-x32>${os.name}-${os.arch}</javacpp.platform.raspberry-x32>
+        <javacpp.platform.raspberry-x64>${os.name}-${os.arch}</javacpp.platform.raspberry-x64>
         <javacpp.platform.windows-x86>${os.name}-${os.arch}</javacpp.platform.windows-x86>
         <javacpp.platform.windows-x86_64>${os.name}-${os.arch}</javacpp.platform.windows-x86_64>
       </properties>
@@ -556,6 +562,8 @@
         <javacpp.platform.linux-armhf></javacpp.platform.linux-armhf>
         <javacpp.platform.linux-ppc64le></javacpp.platform.linux-ppc64le>
         <javacpp.platform.macosx-x86_64></javacpp.platform.macosx-x86_64>
+        <javacpp.platform.raspberry-x32></javacpp.platform.raspberry-x32>
+        <javacpp.platform.raspberry-x64></javacpp.platform.raspberry-x64>
         <javacpp.platform.windows-x86></javacpp.platform.windows-x86>
         <javacpp.platform.windows-x86_64></javacpp.platform.windows-x86_64>
       </properties>
@@ -588,6 +596,36 @@
         <javacpp.platform>android-x86</javacpp.platform>
         <javacpp.platform.root>${user.home}/Android/android-ndk/</javacpp.platform.root>
         <javacpp.platform.compiler>toolchains/x86-4.9/prebuilt/${os.name}-${os.arch}/bin/i686-linux-android-g++</javacpp.platform.compiler>
+      </properties>
+    </profile>
+
+    <!-- Provide convenient profiles to set commonly used paths for Raspberry PI -->
+    <profile>
+      <id>raspberry-x32-default</id>
+      <activation>
+        <property>
+          <name>javacpp.platform</name>
+          <value>raspberry-x32</value>
+        </property>
+      </activation>
+      <properties>
+        <javacpp.platform>raspberry-x32</javacpp.platform>
+        <javacpp.platform.root>${user.home}/raspberry-tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/</javacpp.platform.root>
+        <javacpp.platform.compiler>bin/arm-linux-gnueabihf-g++</javacpp.platform.compiler>
+      </properties>
+    </profile>
+    <profile>
+      <id>raspberry-x64-default</id>
+      <activation>
+        <property>
+          <name>javacpp.platform</name>
+          <value>raspberry-x64</value>
+        </property>
+      </activation>
+      <properties>
+        <javacpp.platform>raspberry-x64</javacpp.platform>
+        <javacpp.platform.root>${user.home}/raspberry-tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/</javacpp.platform.root>
+        <javacpp.platform.compiler>bin/arm-linux-gnueabihf-g++</javacpp.platform.compiler>
       </properties>
     </profile>
 
