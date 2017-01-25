@@ -32,7 +32,7 @@ import org.bytedeco.javacpp.tools.InfoMapper;
  * @author Gregory DEPUILLE
  */
 @Properties(target="org.bytedeco.javacpp.rplidar", value={
-  @Platform(include="<rplidar.h>")
+  @Platform(include={"<rplidar.h>", "<rplidar_cmd.h>", "<rplidar_driver.h>", "<rplidar_protocol.h>", "<rptypes.h>"})
 })
 public class rplidar implements InfoMapper {
     public void map(InfoMap infoMap) {
