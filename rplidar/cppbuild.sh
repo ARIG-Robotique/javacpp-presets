@@ -7,8 +7,8 @@ if [[ -z "$PLATFORM" ]]; then
     exit
 fi
 
-RPLIDAR_VERSION=1.5.6
-FILENAME=rplidar_sdk.$RPLIDAR_VERSION
+RPLIDAR_VERSION=1.5.7
+FILENAME=rplidar_sdk_v$RPLIDAR_VERSION
 INSTALL_PATH=$(pwd)
 
 mkdir -p $INSTALL_PATH/$PLATFORM
