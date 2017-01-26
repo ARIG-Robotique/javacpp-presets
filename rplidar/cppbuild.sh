@@ -40,4 +40,9 @@ esac
 cd $INSTALL_PATH/$PLATFORM
 cp -Rv $FILENAME/sdk/sdk/include .
 
+# Replace '__attribute__((packed))' to unlock typedef struct parsing
+for file in rplidar_cmd.h rplidar_protocol.h ; do
+    sed -i 's|__attribute__((packed)) ||g' ./include/$file
+done
+
 cd $INSTALL_PATH

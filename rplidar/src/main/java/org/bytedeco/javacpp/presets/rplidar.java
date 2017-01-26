@@ -37,17 +37,15 @@ import org.bytedeco.javacpp.tools.InfoMapper;
 public class rplidar implements InfoMapper {
     public void map(InfoMap infoMap) {
         infoMap
-                .put(new Info("rplidar_response_device_health_t"))
+            .put(new Info("_s8").valueTypes("byte").pointerTypes("BytePointer", "ByteBuffer", "byte[]"))
+            .put(new Info("_u8").cast().valueTypes("byte").pointerTypes("IntPointer", "IntBuffer", "int[]"))
 
-                .put(new Info("_s8").valueTypes("byte").pointerTypes("BytePointer", "ByteBuffer", "byte[]"))
-                .put(new Info("_u8").cast().valueTypes("byte").pointerTypes("IntPointer", "IntBuffer", "int[]"))
+            .put(new Info("_s16").valueTypes("short").pointerTypes("ShortPointer", "ShortBuffer", "short[]"))
+            .put(new Info("_u16").cast().valueTypes("short").pointerTypes("ShortPointer", "ShortBuffer", "short[]"))
 
-                .put(new Info("_s16").valueTypes("short").pointerTypes("ShortPointer", "ShortBuffer", "short[]"))
-                .put(new Info("_u16").cast().valueTypes("short").pointerTypes("ShortPointer", "ShortBuffer", "short[]"))
+            .put(new Info("_s32").valueTypes("int").pointerTypes("IntPointer", "IntBuffer", "int[]"))
+            .put(new Info("_u32", "u_result").cast().valueTypes("int").pointerTypes("IntPointer", "IntBuffer", "int[]"))
 
-                .put(new Info("_s32").valueTypes("int").pointerTypes("IntPointer", "IntBuffer", "int[]"))
-                .put(new Info("_u32", "u_result").cast().valueTypes("int").pointerTypes("IntPointer", "IntBuffer", "int[]"))
-
-                .put(new Info("_s64", "_u64").cast().valueTypes("long").pointerTypes("LongPointer", "LongBuffer", "long[]"));
+            .put(new Info("_s64", "_u64").cast().valueTypes("long").pointerTypes("LongPointer", "LongBuffer", "long[]"));
     }
 }

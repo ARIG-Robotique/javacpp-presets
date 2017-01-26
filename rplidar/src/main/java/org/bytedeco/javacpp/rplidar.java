@@ -128,9 +128,59 @@ public static final int RPLIDAR_CMD_GET_ACC_BOARD_FLAG = 0xFF;
 // ------------------------------------------
 public static final int RPLIDAR_EXPRESS_SCAN_MODE_NORMAL =      0; 
 public static final int RPLIDAR_EXPRESS_SCAN_MODE_FIXANGLE =    1;
+public static class rplidar_payload_express_scan_t extends Pointer {
+    static { Loader.load(); }
+    /** Default native constructor. */
+    public rplidar_payload_express_scan_t() { super((Pointer)null); allocate(); }
+    /** Native array allocator. Access with {@link Pointer#position(long)}. */
+    public rplidar_payload_express_scan_t(long size) { super((Pointer)null); allocateArray(size); }
+    /** Pointer cast constructor. Invokes {@link Pointer#Pointer(Pointer)}. */
+    public rplidar_payload_express_scan_t(Pointer p) { super(p); }
+    private native void allocate();
+    private native void allocateArray(long size);
+    @Override public rplidar_payload_express_scan_t position(long position) {
+        return (rplidar_payload_express_scan_t)super.position(position);
+    }
+
+    public native @Cast("_u8") byte working_mode(); public native rplidar_payload_express_scan_t working_mode(byte working_mode);
+    public native @Cast("_u32") int reserved(); public native rplidar_payload_express_scan_t reserved(int reserved);
+}
 
 public static final int MAX_MOTOR_PWM =               1023;
 public static final int DEFAULT_MOTOR_PWM =           660;
+public static class rplidar_payload_motor_pwm_t extends Pointer {
+    static { Loader.load(); }
+    /** Default native constructor. */
+    public rplidar_payload_motor_pwm_t() { super((Pointer)null); allocate(); }
+    /** Native array allocator. Access with {@link Pointer#position(long)}. */
+    public rplidar_payload_motor_pwm_t(long size) { super((Pointer)null); allocateArray(size); }
+    /** Pointer cast constructor. Invokes {@link Pointer#Pointer(Pointer)}. */
+    public rplidar_payload_motor_pwm_t(Pointer p) { super(p); }
+    private native void allocate();
+    private native void allocateArray(long size);
+    @Override public rplidar_payload_motor_pwm_t position(long position) {
+        return (rplidar_payload_motor_pwm_t)super.position(position);
+    }
+
+    public native @Cast("_u16") short pwm_value(); public native rplidar_payload_motor_pwm_t pwm_value(short pwm_value);
+}
+
+public static class rplidar_payload_acc_board_flag_t extends Pointer {
+    static { Loader.load(); }
+    /** Default native constructor. */
+    public rplidar_payload_acc_board_flag_t() { super((Pointer)null); allocate(); }
+    /** Native array allocator. Access with {@link Pointer#position(long)}. */
+    public rplidar_payload_acc_board_flag_t(long size) { super((Pointer)null); allocateArray(size); }
+    /** Pointer cast constructor. Invokes {@link Pointer#Pointer(Pointer)}. */
+    public rplidar_payload_acc_board_flag_t(Pointer p) { super(p); }
+    private native void allocate();
+    private native void allocateArray(long size);
+    @Override public rplidar_payload_acc_board_flag_t position(long position) {
+        return (rplidar_payload_acc_board_flag_t)super.position(position);
+    }
+
+    public native @Cast("_u32") int reserved(); public native rplidar_payload_acc_board_flag_t reserved(int reserved);
+}
 
 // Response
 // ------------------------------------------
@@ -147,6 +197,22 @@ public static final int RPLIDAR_ANS_TYPE_SAMPLE_RATE =      0x15;
 public static final int RPLIDAR_ANS_TYPE_ACC_BOARD_FLAG =   0xFF;
 
 public static final int RPLIDAR_RESP_ACC_BOARD_FLAG_MOTOR_CTRL_SUPPORT_MASK =      (0x1);
+public static class rplidar_response_acc_board_flag_t extends Pointer {
+    static { Loader.load(); }
+    /** Default native constructor. */
+    public rplidar_response_acc_board_flag_t() { super((Pointer)null); allocate(); }
+    /** Native array allocator. Access with {@link Pointer#position(long)}. */
+    public rplidar_response_acc_board_flag_t(long size) { super((Pointer)null); allocateArray(size); }
+    /** Pointer cast constructor. Invokes {@link Pointer#Pointer(Pointer)}. */
+    public rplidar_response_acc_board_flag_t(Pointer p) { super(p); }
+    private native void allocate();
+    private native void allocateArray(long size);
+    @Override public rplidar_response_acc_board_flag_t position(long position) {
+        return (rplidar_response_acc_board_flag_t)super.position(position);
+    }
+
+    public native @Cast("_u32") int support_flag(); public native rplidar_response_acc_board_flag_t support_flag(int support_flag);
+}
 
 
 public static final int RPLIDAR_STATUS_OK =                 0x0;
@@ -158,15 +224,131 @@ public static final int RPLIDAR_RESP_MEASUREMENT_QUALITY_SHIFT =  2;
 public static final int RPLIDAR_RESP_MEASUREMENT_CHECKBIT =       (0x1<<0);
 public static final int RPLIDAR_RESP_MEASUREMENT_ANGLE_SHIFT =    1;
 
+public static class rplidar_response_sample_rate_t extends Pointer {
+    static { Loader.load(); }
+    /** Default native constructor. */
+    public rplidar_response_sample_rate_t() { super((Pointer)null); allocate(); }
+    /** Native array allocator. Access with {@link Pointer#position(long)}. */
+    public rplidar_response_sample_rate_t(long size) { super((Pointer)null); allocateArray(size); }
+    /** Pointer cast constructor. Invokes {@link Pointer#Pointer(Pointer)}. */
+    public rplidar_response_sample_rate_t(Pointer p) { super(p); }
+    private native void allocate();
+    private native void allocateArray(long size);
+    @Override public rplidar_response_sample_rate_t position(long position) {
+        return (rplidar_response_sample_rate_t)super.position(position);
+    }
+
+    public native @Cast("_u16") short std_sample_duration_us(); public native rplidar_response_sample_rate_t std_sample_duration_us(short std_sample_duration_us);
+    public native @Cast("_u16") short express_sample_duration_us(); public native rplidar_response_sample_rate_t express_sample_duration_us(short express_sample_duration_us);
+}
+
+public static class rplidar_response_measurement_node_t extends Pointer {
+    static { Loader.load(); }
+    /** Default native constructor. */
+    public rplidar_response_measurement_node_t() { super((Pointer)null); allocate(); }
+    /** Native array allocator. Access with {@link Pointer#position(long)}. */
+    public rplidar_response_measurement_node_t(long size) { super((Pointer)null); allocateArray(size); }
+    /** Pointer cast constructor. Invokes {@link Pointer#Pointer(Pointer)}. */
+    public rplidar_response_measurement_node_t(Pointer p) { super(p); }
+    private native void allocate();
+    private native void allocateArray(long size);
+    @Override public rplidar_response_measurement_node_t position(long position) {
+        return (rplidar_response_measurement_node_t)super.position(position);
+    }
+
+    public native @Cast("_u8") byte sync_quality(); public native rplidar_response_measurement_node_t sync_quality(byte sync_quality);      // syncbit:1;syncbit_inverse:1;quality:6;
+    public native @Cast("_u16") short angle_q6_checkbit(); public native rplidar_response_measurement_node_t angle_q6_checkbit(short angle_q6_checkbit); // check_bit:1;angle_q6:15;
+    public native @Cast("_u16") short distance_q2(); public native rplidar_response_measurement_node_t distance_q2(short distance_q2);
+}
+
 //[distance_sync flags]
 public static final int RPLIDAR_RESP_MEASUREMENT_EXP_ANGLE_MASK =           (0x3);
-public static final int RPLIDAR_RESP_MEASUREMENT_EXP_DISTANCE_MASK =        (0xFC);   
+public static final int RPLIDAR_RESP_MEASUREMENT_EXP_DISTANCE_MASK =        (0xFC);
+
+public static class rplidar_response_cabin_nodes_t extends Pointer {
+    static { Loader.load(); }
+    /** Default native constructor. */
+    public rplidar_response_cabin_nodes_t() { super((Pointer)null); allocate(); }
+    /** Native array allocator. Access with {@link Pointer#position(long)}. */
+    public rplidar_response_cabin_nodes_t(long size) { super((Pointer)null); allocateArray(size); }
+    /** Pointer cast constructor. Invokes {@link Pointer#Pointer(Pointer)}. */
+    public rplidar_response_cabin_nodes_t(Pointer p) { super(p); }
+    private native void allocate();
+    private native void allocateArray(long size);
+    @Override public rplidar_response_cabin_nodes_t position(long position) {
+        return (rplidar_response_cabin_nodes_t)super.position(position);
+    }
+
+    public native @Cast("_u16") short distance_angle_1(); public native rplidar_response_cabin_nodes_t distance_angle_1(short distance_angle_1); // see [distance_sync flags]
+    public native @Cast("_u16") short distance_angle_2(); public native rplidar_response_cabin_nodes_t distance_angle_2(short distance_angle_2); // see [distance_sync flags]
+    public native @Cast("_u8") byte offset_angles_q3(); public native rplidar_response_cabin_nodes_t offset_angles_q3(byte offset_angles_q3);  
+}   
 
 
 public static final int RPLIDAR_RESP_MEASUREMENT_EXP_SYNC_1 =               0xA;
 public static final int RPLIDAR_RESP_MEASUREMENT_EXP_SYNC_2 =               0x5;
 
 public static final int RPLIDAR_RESP_MEASUREMENT_EXP_SYNCBIT =              (0x1<<15);
+
+public static class rplidar_response_capsule_measurement_nodes_t extends Pointer {
+    static { Loader.load(); }
+    /** Default native constructor. */
+    public rplidar_response_capsule_measurement_nodes_t() { super((Pointer)null); allocate(); }
+    /** Native array allocator. Access with {@link Pointer#position(long)}. */
+    public rplidar_response_capsule_measurement_nodes_t(long size) { super((Pointer)null); allocateArray(size); }
+    /** Pointer cast constructor. Invokes {@link Pointer#Pointer(Pointer)}. */
+    public rplidar_response_capsule_measurement_nodes_t(Pointer p) { super(p); }
+    private native void allocate();
+    private native void allocateArray(long size);
+    @Override public rplidar_response_capsule_measurement_nodes_t position(long position) {
+        return (rplidar_response_capsule_measurement_nodes_t)super.position(position);
+    }
+
+    public native @Cast("_u8") byte s_checksum_1(); public native rplidar_response_capsule_measurement_nodes_t s_checksum_1(byte s_checksum_1); // see [s_checksum_1]
+    public native @Cast("_u8") byte s_checksum_2(); public native rplidar_response_capsule_measurement_nodes_t s_checksum_2(byte s_checksum_2); // see [s_checksum_1]
+    public native @Cast("_u16") short start_angle_sync_q6(); public native rplidar_response_capsule_measurement_nodes_t start_angle_sync_q6(short start_angle_sync_q6);
+    public native @ByRef rplidar_response_cabin_nodes_t cabins(int i); public native rplidar_response_capsule_measurement_nodes_t cabins(int i, rplidar_response_cabin_nodes_t cabins);
+    @MemberGetter public native rplidar_response_cabin_nodes_t cabins();
+}
+
+public static class rplidar_response_device_info_t extends Pointer {
+    static { Loader.load(); }
+    /** Default native constructor. */
+    public rplidar_response_device_info_t() { super((Pointer)null); allocate(); }
+    /** Native array allocator. Access with {@link Pointer#position(long)}. */
+    public rplidar_response_device_info_t(long size) { super((Pointer)null); allocateArray(size); }
+    /** Pointer cast constructor. Invokes {@link Pointer#Pointer(Pointer)}. */
+    public rplidar_response_device_info_t(Pointer p) { super(p); }
+    private native void allocate();
+    private native void allocateArray(long size);
+    @Override public rplidar_response_device_info_t position(long position) {
+        return (rplidar_response_device_info_t)super.position(position);
+    }
+
+    public native @Cast("_u8") byte model(); public native rplidar_response_device_info_t model(byte model);
+    public native @Cast("_u16") short firmware_version(); public native rplidar_response_device_info_t firmware_version(short firmware_version);
+    public native @Cast("_u8") byte hardware_version(); public native rplidar_response_device_info_t hardware_version(byte hardware_version);
+    public native @Cast("_u8") byte serialnum(int i); public native rplidar_response_device_info_t serialnum(int i, byte serialnum);
+    @MemberGetter public native @Cast("_u8*") IntPointer serialnum();
+}
+
+public static class rplidar_response_device_health_t extends Pointer {
+    static { Loader.load(); }
+    /** Default native constructor. */
+    public rplidar_response_device_health_t() { super((Pointer)null); allocate(); }
+    /** Native array allocator. Access with {@link Pointer#position(long)}. */
+    public rplidar_response_device_health_t(long size) { super((Pointer)null); allocateArray(size); }
+    /** Pointer cast constructor. Invokes {@link Pointer#Pointer(Pointer)}. */
+    public rplidar_response_device_health_t(Pointer p) { super(p); }
+    private native void allocate();
+    private native void allocateArray(long size);
+    @Override public rplidar_response_device_health_t position(long position) {
+        return (rplidar_response_device_health_t)super.position(position);
+    }
+
+    public native @Cast("_u8") byte status(); public native rplidar_response_device_health_t status(byte status);
+    public native @Cast("_u16") short error_code(); public native rplidar_response_device_health_t error_code(short error_code);
+}
 
 // #if defined(_WIN32)
 // #pragma pack()
@@ -489,6 +671,48 @@ public static final int RPLIDAR_ANS_HEADER_SUBTYPE_SHIFT =    (30);
 // #if defined(_WIN32)
 // #pragma pack(1)
 // #endif
+
+public static class rplidar_cmd_packet_t extends Pointer {
+    static { Loader.load(); }
+    /** Default native constructor. */
+    public rplidar_cmd_packet_t() { super((Pointer)null); allocate(); }
+    /** Native array allocator. Access with {@link Pointer#position(long)}. */
+    public rplidar_cmd_packet_t(long size) { super((Pointer)null); allocateArray(size); }
+    /** Pointer cast constructor. Invokes {@link Pointer#Pointer(Pointer)}. */
+    public rplidar_cmd_packet_t(Pointer p) { super(p); }
+    private native void allocate();
+    private native void allocateArray(long size);
+    @Override public rplidar_cmd_packet_t position(long position) {
+        return (rplidar_cmd_packet_t)super.position(position);
+    }
+
+    public native @Cast("_u8") byte syncByte(); public native rplidar_cmd_packet_t syncByte(byte syncByte); //must be RPLIDAR_CMD_SYNC_BYTE
+    public native @Cast("_u8") byte cmd_flag(); public native rplidar_cmd_packet_t cmd_flag(byte cmd_flag); 
+    public native @Cast("_u8") byte size(); public native rplidar_cmd_packet_t size(byte size);
+    public native @Cast("_u8") byte data(int i); public native rplidar_cmd_packet_t data(int i, byte data);
+    @MemberGetter public native @Cast("_u8*") IntPointer data();
+}
+
+
+public static class rplidar_ans_header_t extends Pointer {
+    static { Loader.load(); }
+    /** Default native constructor. */
+    public rplidar_ans_header_t() { super((Pointer)null); allocate(); }
+    /** Native array allocator. Access with {@link Pointer#position(long)}. */
+    public rplidar_ans_header_t(long size) { super((Pointer)null); allocateArray(size); }
+    /** Pointer cast constructor. Invokes {@link Pointer#Pointer(Pointer)}. */
+    public rplidar_ans_header_t(Pointer p) { super(p); }
+    private native void allocate();
+    private native void allocateArray(long size);
+    @Override public rplidar_ans_header_t position(long position) {
+        return (rplidar_ans_header_t)super.position(position);
+    }
+
+    public native @Cast("_u8") byte syncByte1(); public native rplidar_ans_header_t syncByte1(byte syncByte1); // must be RPLIDAR_ANS_SYNC_BYTE1
+    public native @Cast("_u8") byte syncByte2(); public native rplidar_ans_header_t syncByte2(byte syncByte2); // must be RPLIDAR_ANS_SYNC_BYTE2
+    public native @Cast("_u32") int size_q30_subtype(); public native rplidar_ans_header_t size_q30_subtype(int size_q30_subtype); // see _u32 size:30; _u32 subType:2;
+    public native @Cast("_u8") byte type(); public native rplidar_ans_header_t type(byte type);
+}
 
 // #if defined(_WIN32)
 // #pragma pack()
